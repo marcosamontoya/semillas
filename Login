@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign In / Log In</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; }
+    form { margin: 20px 0; }
+    input { display: block; margin-bottom: 10px; padding: 8px; width: 300px; }
+    button { padding: 10px 15px; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+  <h2>Inicio de sesión (Log In)</h2>
+  <form id="logInForm">
+    <input type="email" id="emailLogIn" placeholder="Email" required>
+    <input type="password" id="passwordLogIn" placeholder="Contraseña" required>
+    <button type="submit">Ingresar</button>
+    
+  </form>
+
+  <script>
+    // Base de datos de usuarios (simulada)
+    const usuarios = {
+      "montoya.marcos@inta.gob.ar": { password: "Marcos", page: "C:/Users/Marcos/Desktop/AgroData360/inta-eea-mendoza/index.html" },
+      "dalmasso.julieta@inta.gob.ar": { password: "Julinna", page: "C:/Users/Marcos/Desktop/AgroData360/agrodata360/index.html" },
+      "semillas@semillas.com": { password: "semillas", page: "user3.html" }
+    };
+
+  
+  document.getElementById("logInForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const email = document.getElementById("emailLogIn").value;
+  const password = document.getElementById("passwordLogIn").value;
+  if (usuarios[email] && usuarios[email].password === password) {
+    // 🔐 Guardar email del usuario autenticado
+    sessionStorage.setItem("usuarioLogueado", email);
+
+    // 🔀 Redirigir a su página personalizada
+    window.location.href = usuarios[email].page;
+  } else {
+    alert("Email o contraseña incorrectos.");
+  }
+});
+
+// Mostrar/ocultar contraseñas
+    document.getElementById("toggleSignInPassword").addEventListener("change", function() {
+      const passField = document.getElementById("passwordSignIn");
+      passField.type = this.checked ? "text" : "password";
+    });
+
+    document.getElementById("toggleLogInPassword").addEventListener("change", function() {
+      const passField = document.getElementById("passwordLogIn");
+      passField.type = this.checked ? "text" : "password";
+    });
+
+  
+  </script>
+</body>
+</html>
