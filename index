@@ -24,9 +24,9 @@
   <script>
     // Base de datos de usuarios (simulada)
     const usuarios = {
-      "montoya.marcos@inta.gob.ar": { password: "Marcos", page: "C:/Users/Marcos/Desktop/AgroData360/inta-eea-mendoza/index.html" },
-      "dalmasso.julieta@inta.gob.ar": { password: "Julinna", page: "C:/Users/Marcos/Desktop/AgroData360/agrodata360/index.html" },
-      "semillas@semillas.com": { password: "semillas", page: "user3.html" }
+      "montoya.marcos@inta.gob.ar": { password: "Marcos", page: "mapa.html" },
+      "dalmasso.julieta@inta.gob.ar": { password: "Julinna", page: "mapa.html" },
+      "semillas@semillas.com": { password: "semillas", page: "mapa.html" }
     };
 
   
